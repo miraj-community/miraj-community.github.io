@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>معراج — Mi'Raj</title>
+<meta name="description" content="معراج، همراه روزانهٔ شما با قرآن، نماز و دعا. Mi'Raj — your daily companion for the Quran, prayer and dua.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F3EAD8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16130E" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%238F7349'/%3E%3Cpath d='M38 14a18 18 0 1 0 0 36a15 15 0 1 1 0-36z' fill='%23F3EAD8'/%3E%3C/svg%3E">
+<script>
+(function(){var d=document.documentElement,K='miraj-lang';
+function apply(l){d.setAttribute('data-lang',l);d.setAttribute('lang',l);d.setAttribute('dir',l==='fa'?'rtl':'ltr');}
+function save(l){try{localStorage.setItem(K,l);}catch(e){}}
+var h=(location.hash||'').slice(1),l=(h==='en'||h==='fa')?h:null;
+if(!l){try{l=localStorage.getItem(K);}catch(e){}}
+apply(l==='en'?'en':'fa');
+window.addEventListener('hashchange',function(){var x=location.hash.slice(1);if(x==='en'||x==='fa'){apply(x);save(x);window.scrollTo(0,0);}});
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[data-set-lang]');if(a)save(a.getAttribute('data-set-lang'));});
+})();
+</script>
+<style>
+:root{--bg:#F3EAD8;--surface:#FAF4E8;--text:#2D2416;--muted:#6E5F47;--accent:#8F7349;--accent-ink:#6F5733;--on-accent:#FFFFFF;--border:#E0D2B6;--warn-bg:#FFF2C9;--warn-border:#C9A43A;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#16130E;--surface:#201B14;--text:#EEE4D1;--muted:#B3A487;--accent:#C7A673;--accent-ink:#D9BD8F;--on-accent:#1A150E;--border:#3A3125;--warn-bg:#3A3015;--warn-border:#8C7330;color-scheme:dark}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.75 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+[lang=fa]{font-family:Vazirmatn,Vazir,"IRANSansX",Tahoma,"Segoe UI",system-ui,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+header.top{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--border)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:56px}
+.brand{display:flex;align-items:baseline;gap:10px;text-decoration:none;color:var(--text)}
+.brand b{font-size:22px;font-family:Vazirmatn,Vazir,Tahoma,system-ui,sans-serif}
+.brand span{font-size:14px;color:var(--muted);font-weight:600;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.langs{display:flex;gap:2px;border:1px solid var(--border);border-radius:999px;padding:2px;background:var(--surface)}
+.langs a{padding:3px 12px;border-radius:999px;text-decoration:none;color:var(--muted);font-size:14px;font-weight:600}
+html[data-lang=fa] .langs a[data-set-lang=fa],html[data-lang=en] .langs a[data-set-lang=en]{background:var(--accent);color:var(--on-accent)}
+html[data-lang=fa] .en,html[data-lang=en] .fa{display:none!important}
+main{padding:28px 0 40px}
+h1{font-size:30px;line-height:1.3;margin:0 0 6px}
+h2{font-size:21px;line-height:1.4;margin:36px 0 10px;color:var(--accent-ink)}
+h3{font-size:17px;margin:0 0 2px}
+p{margin:0 0 12px}
+li{margin:0 0 8px}
+ul{padding-inline-start:22px;margin:0 0 12px}
+a{color:var(--accent-ink);text-underline-offset:2px}
+.muted{color:var(--muted)}
+.lead{font-size:19px}
+.tagline{color:var(--accent-ink);font-weight:600;margin-bottom:18px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin:16px 0}
+.features{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr;gap:12px}
+@media (min-width:620px){.features{grid-template-columns:1fr 1fr}}
+.features li{margin:0;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px 16px}
+.features p{margin:0;color:var(--muted);font-size:15.5px;line-height:1.7}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 0}
+.btn{display:inline-block;padding:8px 16px;border-radius:999px;border:1px solid var(--border);background:var(--surface);text-decoration:none;font-weight:600}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.mail{direction:ltr;unicode-bidi:isolate}
+footer{border-top:1px solid var(--border);color:var(--muted);font-size:14px;padding:20px 0 32px}
+footer nav{display:flex;flex-wrap:wrap;gap:6px 18px;margin-bottom:6px}
+footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="./"><b lang="fa">معراج</b><span lang="en">Mi'Raj</span></a>
+    <nav class="langs" aria-label="Language / زبان">
+      <a href="#fa" data-set-lang="fa" lang="fa">فارسی</a>
+      <a href="#en" data-set-lang="en" lang="en">English</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- ===================== فارسی ===================== -->
+<div class="fa" id="fa" lang="fa" dir="rtl">
+  <h1>معراج</h1>
+  <p class="tagline">قرآن · نماز · نسخهٔ بهتر شما</p>
+  <p class="lead">معراج همراه روزانهٔ شما با قرآن، نماز و دعاست؛ برنامه‌ای برای iOS و اندروید که خواندن و شنیدن قرآن، تمرین قرائت و حفظ، اوقات شرعی و اذان، دعا و زیارت، برنامهٔ ماه رمضان و پرسش‌وپاسخ دینی را یک‌جا کنار هم گذاشته است.</p>
+  <p class="muted">بیشتر بخش‌ها بدون ساختن حساب کاربری هم کار می‌کنند و داده‌های شما در این حالت فقط روی گوشی خودتان می‌ماند.</p>
+
+  <h2>امکانات</h2>
+  <ul class="features">
+    <li><h3>قرآن</h3><p>چند رسم‌الخط مصحف، ترجمه‌ها و تفسیرها، و تلاوت قاریان مختلف با دنبال‌کردن کلمه‌به‌کلمه.</p></li>
+    <li><h3>تمرین قرائت و حفظ</h3><p>با صدای بلند بخوانید؛ معراج کلمه‌به‌کلمه نشان می‌دهد کجا درست خواندید و کجا اشتباه. تشخیص صدا روی خود گوشی انجام می‌شود.</p></li>
+    <li><h3>اهداف و پیشرفت</h3><p>برای خواندن، قرائت یا حفظ هدف بگذارید، یادآور بگیرید و پیشرفت روزانه‌تان را ببینید.</p></li>
+    <li><h3>نماز و قبله</h3><p>اوقات شرعی بر اساس مکان شما، اذان و یادآور نماز، و قبله‌نما.</p></li>
+    <li><h3>دعا و زیارت</h3><p>مفاتیح‌الجنان، صحیفهٔ سجادیه و نهج‌البلاغه، همراه با صوت و دنبال‌کردن متن هنگام خواندن.</p></li>
+    <li><h3>ماه رمضان</h3><p>برنامهٔ روزانهٔ اعمال و دعاهای ماه مبارک با یادآور.</p></li>
+    <li><h3>بپرس</h3><p>پرسش‌هایتان دربارهٔ قرآن و معارف دینی را بپرسید و پاسخی همراه با منبع بگیرید.</p></li>
+    <li><h3>تقویم</h3><p>تاریخ قمری، شمسی و میلادی، همراه با مناسبت‌ها.</p></li>
+  </ul>
+  <p class="muted" style="margin-top:14px">زبان‌ها: فارسی، انگلیسی، عربی و اردو.</p>
+
+  <h2>اطلاعات بیشتر</h2>
+  <div class="links">
+    <a class="btn" href="privacy/#fa">سیاست حریم خصوصی</a>
+    <a class="btn" href="terms/#fa">شرایط استفاده</a>
+    <a class="btn primary" href="mailto:seyedvahid.mirnezami@themiraj.ai,mohammadreza.khalilishoja@themiraj.ai">تماس با ما</a>
+  </div>
+  <p class="muted" style="margin-top:14px">پرسش، پیشنهاد یا گزارش مشکل؟ به <a class="mail" href="mailto:seyedvahid.mirnezami@themiraj.ai">seyedvahid.mirnezami@themiraj.ai</a> یا <a class="mail" href="mailto:mohammadreza.khalilishoja@themiraj.ai">mohammadreza.khalilishoja@themiraj.ai</a> بنویسید.</p>
+</div>
+
+<!-- ===================== English ===================== -->
+<div class="en" id="en" lang="en" dir="ltr">
+  <h1>Mi'Raj</h1>
+  <p class="tagline">Quran · Prayer · A better you</p>
+  <p class="lead">Mi'Raj is your daily companion for the Quran, prayer and dua — an app for iOS and Android that brings together reading and listening to the Quran, recitation and memorization (hifz) practice, prayer times and adhan, duas and ziyarat, a Ramadan programme and questions about the faith, in one place.</p>
+  <p class="muted">Most of the app works without an account; used that way, your data stays on your phone.</p>
+
+  <h2>What's inside</h2>
+  <ul class="features">
+    <li><h3>Quran</h3><p>Several mushaf scripts, translations and tafsirs, and many reciters with word-by-word follow-along.</p></li>
+    <li><h3>Recitation &amp; hifz practice</h3><p>Recite aloud and Mi'Raj shows, word by word, what you got right and what you missed. Speech recognition runs on your phone.</p></li>
+    <li><h3>Goals &amp; progress</h3><p>Set reading, recitation or memorization goals, get reminders and follow your daily progress.</p></li>
+    <li><h3>Prayer &amp; Qibla</h3><p>Prayer times for where you are, adhan and prayer reminders, and a Qibla compass.</p></li>
+    <li><h3>Duas &amp; ziyarat</h3><p>Mafatih al-Jinan, Sahifa Sajjadiya and Nahj al-Balagha, with audio and the text following along as you read.</p></li>
+    <li><h3>Ramadan</h3><p>A day-by-day programme of the month's acts and duas, with reminders.</p></li>
+    <li><h3>Ask</h3><p>Ask questions about the Quran and the faith and get answers that cite their sources.</p></li>
+    <li><h3>Calendar</h3><p>Hijri, Solar Hijri and Gregorian dates, with religious occasions.</p></li>
+  </ul>
+  <p class="muted" style="margin-top:14px">Languages: English, Persian, Arabic and Urdu.</p>
+
+  <h2>More</h2>
+  <div class="links">
+    <a class="btn" href="privacy/#en">Privacy Policy</a>
+    <a class="btn" href="terms/#en">Terms of Use</a>
+    <a class="btn primary" href="mailto:seyedvahid.mirnezami@themiraj.ai,mohammadreza.khalilishoja@themiraj.ai">Contact us</a>
+  </div>
+  <p class="muted" style="margin-top:14px">Questions, ideas or a problem to report? Write to <a href="mailto:seyedvahid.mirnezami@themiraj.ai">seyedvahid.mirnezami@themiraj.ai</a> or <a href="mailto:mohammadreza.khalilishoja@themiraj.ai">mohammadreza.khalilishoja@themiraj.ai</a>.</p>
+</div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav class="fa" lang="fa" dir="rtl"><a href="privacy/#fa">حریم خصوصی</a><a href="terms/#fa">شرایط استفاده</a><a class="mail" href="mailto:seyedvahid.mirnezami@themiraj.ai">seyedvahid.mirnezami@themiraj.ai</a><a class="mail" href="mailto:mohammadreza.khalilishoja@themiraj.ai">mohammadreza.khalilishoja@themiraj.ai</a></nav>
+    <nav class="en" lang="en" dir="ltr"><a href="privacy/#en">Privacy</a><a href="terms/#en">Terms</a><a href="mailto:seyedvahid.mirnezami@themiraj.ai">seyedvahid.mirnezami@themiraj.ai</a><a href="mailto:mohammadreza.khalilishoja@themiraj.ai">mohammadreza.khalilishoja@themiraj.ai</a></nav>
+    <div lang="en" dir="ltr">© 2026 Mi'Raj</div>
+  </div>
+</footer>
+</body>
+</html>
