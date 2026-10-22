@@ -3,12 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>معراج — Mi'Raj</title>
-<meta name="description" content="معراج، همراه روزانهٔ شما با قرآن، نماز و دعا. Mi'Raj — your daily companion for the Quran, prayer and dua.">
+<title>Mi'Raj — Quran, Dua & Prayer</title>
+<meta name="description" content="معراج: قرآن با تفسیر، دعاهای مفاتیح، اوقات شرعی و اذان، و پرسش از تفسیرها. Mi'Raj: the Quran with tafsir, Mafatih duas, prayer times and adhan, and answers from tafsir — in Persian, English, Arabic and Urdu.">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#F3EAD8" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#16130E" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%238F7349'/%3E%3Cpath d='M38 14a18 18 0 1 0 0 36a15 15 0 1 1 0-36z' fill='%23F3EAD8'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#F6EEDD" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14110C" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Mi'Raj — Quran, Dua & Prayer">
+<meta property="og:description" content="The Quran with tafsir, Mafatih duas, prayer times and adhan — in Persian, English, Arabic and Urdu.">
+<meta property="og:image" content="https://miraj-app.github.io/assets/icon.png">
+<link rel="icon" href="assets/icon.png">
+<link rel="apple-touch-icon" href="assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
 <script>
 (function(){var d=document.documentElement,K='miraj-lang';
 function apply(l){d.setAttribute('data-lang',l);d.setAttribute('lang',l);d.setAttribute('dir',l==='fa'?'rtl':'ltr');}
@@ -21,122 +28,313 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 })();
 </script>
 <style>
-:root{--bg:#F3EAD8;--surface:#FAF4E8;--text:#2D2416;--muted:#6E5F47;--accent:#8F7349;--accent-ink:#6F5733;--on-accent:#FFFFFF;--border:#E0D2B6;--warn-bg:#FFF2C9;--warn-border:#C9A43A;color-scheme:light}
-@media (prefers-color-scheme:dark){:root{--bg:#16130E;--surface:#201B14;--text:#EEE4D1;--muted:#B3A487;--accent:#C7A673;--accent-ink:#D9BD8F;--on-accent:#1A150E;--border:#3A3125;--warn-bg:#3A3015;--warn-border:#8C7330;color-scheme:dark}}
+:root{
+  --bg:#F6EEDD;--bg2:#FBF6EC;--surface:#FFFDF8;--ink:#2A2117;--muted:#6F604A;--line:#E6D8BC;
+  --gold:#B08D57;--gold-ink:#7A5C2E;--gold-soft:#EAD9B5;--green:#2F6B55;--green-soft:#DCEBE3;
+  --shadow:0 1px 2px rgba(60,40,10,.06),0 12px 32px -12px rgba(60,40,10,.22);
+  --radius:22px;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#14110C;--bg2:#1B1710;--surface:#211C14;--ink:#F1E8D6;--muted:#B7A788;--line:#3A3123;
+  --gold:#D2AF73;--gold-ink:#E3C694;--gold-soft:#3A2F1E;--green:#7CC3A6;--green-soft:#17302A;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 18px 40px -16px rgba(0,0,0,.7);color-scheme:dark}}
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-padding-top:72px}
-body{margin:0;background:var(--bg);color:var(--text);font:17px/1.75 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
-[lang=fa]{font-family:Vazirmatn,Vazir,"IRANSansX",Tahoma,"Segoe UI",system-ui,sans-serif}
-.wrap{max-width:760px;margin:0 auto;padding:0 16px}
-header.top{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--border)}
-.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:56px}
-.brand{display:flex;align-items:baseline;gap:10px;text-decoration:none;color:var(--text)}
-.brand b{font-size:22px;font-family:Vazirmatn,Vazir,Tahoma,system-ui,sans-serif}
-.brand span{font-size:14px;color:var(--muted);font-weight:600;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-.langs{display:flex;gap:2px;border:1px solid var(--border);border-radius:999px;padding:2px;background:var(--surface)}
-.langs a{padding:3px 12px;border-radius:999px;text-decoration:none;color:var(--muted);font-size:14px;font-weight:600}
-html[data-lang=fa] .langs a[data-set-lang=fa],html[data-lang=en] .langs a[data-set-lang=en]{background:var(--accent);color:var(--on-accent)}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.7 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+[lang=fa]{font-family:Vazirmatn,Tahoma,system-ui,sans-serif}
 html[data-lang=fa] .en,html[data-lang=en] .fa{display:none!important}
-main{padding:28px 0 40px}
-h1{font-size:30px;line-height:1.3;margin:0 0 6px}
-h2{font-size:21px;line-height:1.4;margin:36px 0 10px;color:var(--accent-ink)}
-h3{font-size:17px;margin:0 0 2px}
-p{margin:0 0 12px}
-li{margin:0 0 8px}
-ul{padding-inline-start:22px;margin:0 0 12px}
-a{color:var(--accent-ink);text-underline-offset:2px}
-.muted{color:var(--muted)}
-.lead{font-size:19px}
-.tagline{color:var(--accent-ink);font-weight:600;margin-bottom:18px}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin:16px 0}
-.features{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr;gap:12px}
-@media (min-width:620px){.features{grid-template-columns:1fr 1fr}}
-.features li{margin:0;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px 16px}
-.features p{margin:0;color:var(--muted);font-size:15.5px;line-height:1.7}
-.links{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 0}
-.btn{display:inline-block;padding:8px 16px;border-radius:999px;border:1px solid var(--border);background:var(--surface);text-decoration:none;font-weight:600}
-.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+a{color:var(--gold-ink)}
+img{max-width:100%;display:block}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+/* Header */
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid color-mix(in srgb,var(--line) 70%,transparent)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.brand img{width:36px;height:36px;border-radius:10px;box-shadow:0 2px 8px rgba(60,40,10,.2)}
+.brand b{font:700 20px/1 Vazirmatn,system-ui,sans-serif}
+.brand span{font:600 14px/1 Inter,system-ui,sans-serif;color:var(--muted)}
+.nav{display:flex;align-items:center;gap:22px}
+.nav a.link{color:var(--muted);text-decoration:none;font-weight:600;font-size:15px}
+.nav a.link:hover{color:var(--ink)}
+.langs{display:flex;gap:2px;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--surface)}
+.langs a{padding:4px 13px;border-radius:999px;text-decoration:none;color:var(--muted);font-size:14px;font-weight:600}
+html[data-lang=fa] .langs a[data-set-lang=fa],html[data-lang=en] .langs a[data-set-lang=en]{background:var(--ink);color:var(--bg)}
+@media (max-width:720px){.nav a.link{display:none}}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;padding:72px 0 40px}
+.hero::before{content:"";position:absolute;inset:-30% -10% auto;height:620px;background:
+  radial-gradient(closest-side,color-mix(in srgb,var(--gold) 26%,transparent),transparent 70%) 18% 30%/700px 700px no-repeat,
+  radial-gradient(closest-side,color-mix(in srgb,var(--green) 16%,transparent),transparent 70%) 85% 10%/600px 600px no-repeat;pointer-events:none}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr;text-align:center}.hero .lede{margin-inline:auto}.badges{justify-content:center}}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--gold-ink);font-weight:600;font-size:14px}
+.eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px var(--green-soft)}
+h1{margin:18px 0 14px;font:700 clamp(38px,5.6vw,64px)/1.08 Fraunces,Georgia,serif;letter-spacing:-.02em}
+[lang=fa] h1{font:800 clamp(36px,5.2vw,58px)/1.3 Vazirmatn,system-ui,sans-serif;letter-spacing:0}
+h1 em{font-style:normal;background:linear-gradient(100deg,var(--gold-ink),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lede{font-size:clamp(17px,1.8vw,19.5px);color:var(--muted);max-width:540px;margin:0 0 28px}
+.badges{display:flex;flex-wrap:wrap;gap:12px}
+.badge{display:inline-flex;align-items:center;gap:10px;padding:10px 18px 10px 14px;border-radius:14px;background:var(--ink);color:var(--bg);text-decoration:none;min-width:178px}
+.badge svg{width:26px;height:26px;flex:none}
+.badge small{display:block;font-size:11.5px;opacity:.75;line-height:1.2}
+.badge b{display:block;font-size:17px;line-height:1.2}
+.badge.soon{opacity:.92;cursor:default}
+.langs-line{margin-top:20px;color:var(--muted);font-size:14.5px}
+
+/* Phones */
+.phones{position:relative;height:560px}
+@media (max-width:900px){.phones{height:500px;max-width:420px;margin:12px auto 0}}
+.phone{position:absolute;width:250px;border-radius:38px;padding:9px;background:linear-gradient(160deg,#2b241a,#0f0c08);box-shadow:var(--shadow),0 30px 60px -24px rgba(60,40,10,.45)}
+.phone img{border-radius:30px;width:100%;aspect-ratio:620/1165;object-fit:cover;object-position:top}
+.phone.a{inset-inline-start:6%;top:30px;transform:rotate(-5deg)}
+.phone.b{inset-inline-end:4%;top:0;transform:rotate(4deg)}
+@media (max-width:520px){.phones{height:420px}.phone{width:178px;border-radius:30px;padding:7px}.phone img{border-radius:24px}.phone.a{inset-inline-start:6%;top:24px}.phone.b{inset-inline-end:6%}}
+
+/* Sections */
+section{padding:72px 0}
+.kicker{color:var(--gold-ink);font-weight:700;font-size:13.5px;letter-spacing:.12em;text-transform:uppercase}
+[lang=fa] .kicker{letter-spacing:0;font-size:15px}
+h2{margin:8px 0 12px;font:700 clamp(28px,3.6vw,40px)/1.15 Fraunces,Georgia,serif;letter-spacing:-.01em}
+[lang=fa] h2{font:800 clamp(26px,3.4vw,36px)/1.4 Vazirmatn,system-ui,sans-serif}
+.sub{color:var(--muted);max-width:640px;margin:0 0 34px;font-size:17.5px}
+.center{text-align:center}.center .sub{margin-inline:auto}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media (max-width:900px){.grid{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.grid{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:0 1px 2px rgba(60,40,10,.04);transition:transform .2s ease,box-shadow .2s ease}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.ico{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:var(--gold-soft);color:var(--gold-ink);margin-bottom:14px}
+.ico.g{background:var(--green-soft);color:var(--green)}
+.ico svg{width:24px;height:24px}
+.card h3{margin:0 0 6px;font-size:19px}
+.card p{margin:0;color:var(--muted);font-size:15.5px}
+
+/* Showcase */
+.show{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:28px 0}
+.show+.show{border-top:1px solid var(--line)}
+.show.flip .media{order:2}
+@media (max-width:860px){.show{grid-template-columns:1fr;gap:26px}.show.flip .media{order:0}}
+.media{display:grid;place-items:center;padding:28px;border-radius:32px;background:linear-gradient(160deg,var(--bg2),color-mix(in srgb,var(--gold-soft) 60%,var(--bg2)))}
+.media .phone{position:relative;inset:auto;transform:none;width:min(270px,70vw)}
+.show h3{font:700 28px/1.2 Fraunces,Georgia,serif;margin:6px 0 10px}
+[lang=fa] .show h3{font:800 26px/1.5 Vazirmatn,system-ui,sans-serif}
+.show p{color:var(--muted);font-size:17px;margin:0 0 14px}
+.ticks{list-style:none;padding:0;margin:0}
+.ticks li{position:relative;padding-inline-start:30px;margin:0 0 9px}
+.ticks li::before{content:"";position:absolute;inset-inline-start:0;top:.42em;width:18px;height:18px;border-radius:50%;background:var(--green-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232F6B55' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center/12px no-repeat}
+
+/* Privacy band */
+.band{background:var(--ink);color:var(--bg);border-radius:32px;padding:48px;display:grid;grid-template-columns:1.1fr 1.9fr;gap:36px;align-items:center}
+@media (max-width:860px){.band{grid-template-columns:1fr;padding:32px}}
+.band h2{color:var(--bg)}
+.band .sub{color:color-mix(in srgb,var(--bg) 72%,transparent);margin:0}
+.band ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:600px){.band ul{grid-template-columns:1fr}}
+.band li{background:color-mix(in srgb,var(--bg) 8%,transparent);border:1px solid color-mix(in srgb,var(--bg) 14%,transparent);border-radius:18px;padding:16px 18px;font-size:15.5px}
+.band li b{display:block;margin-bottom:2px;color:var(--gold-soft)}
+@media (prefers-color-scheme:dark){.band{background:#2A2318;color:var(--ink)}.band h2{color:var(--ink)}.band .sub{color:var(--muted)}.band li{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08)}.band li b{color:var(--gold)}}
+
+/* Contact */
+.cta{text-align:center;background:var(--surface);border:1px solid var(--line);border-radius:32px;padding:48px 24px}
+.cta .btn{display:inline-flex;align-items:center;gap:8px;margin-top:6px;padding:13px 24px;border-radius:999px;background:var(--gold);color:#fff;text-decoration:none;font-weight:700}
+@media (prefers-color-scheme:dark){.cta .btn{color:#1A150E}}
 .mail{direction:ltr;unicode-bidi:isolate}
-footer{border-top:1px solid var(--border);color:var(--muted);font-size:14px;padding:20px 0 32px}
-footer nav{display:flex;flex-wrap:wrap;gap:6px 18px;margin-bottom:6px}
-footer a{color:var(--muted)}
+
+footer{padding:36px 0 48px;color:var(--muted);font-size:14.5px}
+.foot{display:flex;flex-wrap:wrap;gap:14px 28px;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:24px}
+.foot nav{display:flex;flex-wrap:wrap;gap:8px 20px}
+.foot a{color:var(--muted);text-decoration:none}
+.foot a:hover{color:var(--ink)}
 </style>
 </head>
 <body>
+
 <header class="top">
   <div class="wrap bar">
-    <a class="brand" href="./"><b lang="fa">معراج</b><span lang="en">Mi'Raj</span></a>
-    <nav class="langs" aria-label="Language / زبان">
-      <a href="#fa" data-set-lang="fa" lang="fa">فارسی</a>
-      <a href="#en" data-set-lang="en" lang="en">English</a>
-    </nav>
+    <a class="brand" href="./"><img src="assets/icon.png" alt="" width="36" height="36"><b lang="fa">معراج</b><span lang="en">Mi'Raj</span></a>
+    <div class="nav">
+      <a class="link fa" href="#features-fa" lang="fa">امکانات</a>
+      <a class="link fa" href="#privacy-fa" lang="fa">حریم خصوصی</a>
+      <a class="link en" href="#features-en" lang="en">Features</a>
+      <a class="link en" href="#privacy-en" lang="en">Privacy</a>
+      <nav class="langs" aria-label="Language / زبان">
+        <a href="#fa" data-set-lang="fa" lang="fa">فارسی</a>
+        <a href="#en" data-set-lang="en" lang="en">English</a>
+      </nav>
+    </div>
   </div>
 </header>
 
-<main class="wrap">
-
+<main>
 <!-- ===================== فارسی ===================== -->
 <div class="fa" id="fa" lang="fa" dir="rtl">
-  <h1>معراج</h1>
-  <p class="tagline">قرآن · نماز · نسخهٔ بهتر شما</p>
-  <p class="lead">معراج همراه روزانهٔ شما با قرآن، نماز و دعاست؛ برنامه‌ای برای iOS و اندروید که خواندن و شنیدن قرآن، تمرین قرائت و حفظ، اوقات شرعی و اذان، دعا و زیارت، برنامهٔ ماه رمضان و پرسش‌وپاسخ دینی را یک‌جا کنار هم گذاشته است.</p>
-  <p class="muted">بیشتر بخش‌ها بدون ساختن حساب کاربری هم کار می‌کنند و داده‌های شما در این حالت فقط روی گوشی خودتان می‌ماند.</p>
 
-  <h2>امکانات</h2>
-  <ul class="features">
-    <li><h3>قرآن</h3><p>چند رسم‌الخط مصحف، ترجمه‌ها و تفسیرها، و تلاوت قاریان مختلف با دنبال‌کردن کلمه‌به‌کلمه.</p></li>
-    <li><h3>تمرین قرائت و حفظ</h3><p>با صدای بلند بخوانید؛ معراج کلمه‌به‌کلمه نشان می‌دهد کجا درست خواندید و کجا اشتباه. تشخیص صدا روی خود گوشی انجام می‌شود.</p></li>
-    <li><h3>اهداف و پیشرفت</h3><p>برای خواندن، قرائت یا حفظ هدف بگذارید، یادآور بگیرید و پیشرفت روزانه‌تان را ببینید.</p></li>
-    <li><h3>نماز و قبله</h3><p>اوقات شرعی بر اساس مکان شما، اذان و یادآور نماز، و قبله‌نما.</p></li>
-    <li><h3>دعا و زیارت</h3><p>مفاتیح‌الجنان، صحیفهٔ سجادیه و نهج‌البلاغه، همراه با صوت و دنبال‌کردن متن هنگام خواندن.</p></li>
-    <li><h3>ماه رمضان</h3><p>برنامهٔ روزانهٔ اعمال و دعاهای ماه مبارک با یادآور.</p></li>
-    <li><h3>بپرس</h3><p>پرسش‌هایتان دربارهٔ قرآن و معارف دینی را بپرسید و پاسخی همراه با منبع بگیرید.</p></li>
-    <li><h3>تقویم</h3><p>تاریخ قمری، شمسی و میلادی، همراه با مناسبت‌ها.</p></li>
-  </ul>
-  <p class="muted" style="margin-top:14px">زبان‌ها: فارسی، انگلیسی، عربی و اردو.</p>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow"><i></i>به‌زودی در App Store و Google Play</span>
+        <h1>قرآن، دعا و نماز<br><em>در یک همراه آرام</em></h1>
+        <p class="lede">قرآن را با تفسیر بخوانید و بشنوید، با صدای خودتان تلاوت و حفظ کنید، هر دعایی از مفاتیح را پیدا کنید و با اذان به‌موقع نماز بخوانید.</p>
+        <div class="badges">
+          <span class="badge soon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.37 12.6c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.77-3.32-1.8-1.41-.14-2.76.83-3.48.83-.72 0-1.82-.81-3-.79-1.54.02-2.96.9-3.76 2.27-1.6 2.78-.41 6.9 1.15 9.16.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.77.74 2.98.72 1.23-.02 2.01-1.12 2.76-2.23.87-1.28 1.23-2.52 1.25-2.58-.03-.01-2.4-.92-2.37-3.68zM14.1 5.86c.63-.77 1.06-1.83.94-2.89-.91.04-2.01.61-2.66 1.37-.58.67-1.09 1.75-.96 2.79 1.02.08 2.05-.52 2.68-1.27z"/></svg><span><small>به‌زودی در</small><b>App Store</b></span></span>
+          <span class="badge soon"><svg viewBox="0 0 24 24"><path fill="#34A853" d="M3.6 2.3 13.3 12l-9.7 9.7c-.4-.2-.6-.6-.6-1.1V3.4c0-.5.2-.9.6-1.1z"/><path fill="#FBBC04" d="m16.8 8.5-3.5 3.5 3.5 3.5 3.9-2.2c1.1-.6 1.1-2.1 0-2.6z"/><path fill="#4285F4" d="M13.3 12 3.6 21.7c.3.2.8.2 1.2 0l12-6.2z"/><path fill="#EA4335" d="M3.6 2.3c.4-.2.9-.2 1.2 0l12 6.2-3.5 3.5z"/></svg><span><small>به‌زودی در</small><b>Google Play</b></span></span>
+        </div>
+        <p class="langs-line">فارسی · English · العربية · اردو</p>
+      </div>
+      <div class="phones" aria-hidden="true">
+        <div class="phone a"><img src="assets/screen-quran.jpg" alt=""></div>
+        <div class="phone b"><img src="assets/screen-home.jpg" alt=""></div>
+      </div>
+    </div>
+  </section>
 
-  <h2>اطلاعات بیشتر</h2>
-  <div class="links">
-    <a class="btn" href="privacy/#fa">سیاست حریم خصوصی</a>
-    <a class="btn" href="terms/#fa">شرایط استفاده</a>
-    <a class="btn primary" href="mailto:seyedvahid.mirnezami@themiraj.ai,mohammadreza.khalilishoja@themiraj.ai">تماس با ما</a>
-  </div>
-  <p class="muted" style="margin-top:14px">پرسش، پیشنهاد یا گزارش مشکل؟ به <a class="mail" href="mailto:seyedvahid.mirnezami@themiraj.ai">seyedvahid.mirnezami@themiraj.ai</a> یا <a class="mail" href="mailto:mohammadreza.khalilishoja@themiraj.ai">mohammadreza.khalilishoja@themiraj.ai</a> بنویسید.</p>
+  <section id="features-fa">
+    <div class="wrap center">
+      <div class="kicker">امکانات</div>
+      <h2>هر آنچه هر روز به آن سر می‌زنید</h2>
+      <p class="sub">بیشتر بخش‌ها بدون حساب کاربری هم کار می‌کنند؛ در این حالت داده‌هایتان فقط روی گوشی خودتان می‌ماند.</p>
+    </div>
+    <div class="wrap grid">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5.5C4 4.5 7 4 12 6c5-2 8-1.5 10-.5V19c-2-1-5-1.5-10 .5-5-2-8-1.5-10-.5z"/><path d="M12 6v13.5"/></svg></div><h3>قرآن</h3><p>مصحف صفحه به صفحه یا آیه به آیه، با ترجمه، تفسیر و معنای کلمه به کلمه؛ و تلاوت قاریان نامدار.</p></div>
+      <div class="card"><div class="ico g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2.5" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3.5"/></svg></div><h3>تلاوت و حفظ</h3><p>بلند بخوانید؛ معراج کلمه به کلمه همراهتان می‌آید و جای اشتباه را نشان می‌دهد. صدا روی خود گوشی پردازش می‌شود.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 21v-9a5 5 0 0 1 10 0v9M4 21h16M12 7V3M10 4.5h4"/></svg></div><h3>دعا و زیارت</h3><p>مفاتیح الجنان، صحیفهٔ سجادیه و نهج البلاغه، با صوت و روشن‌شدن سطری که خوانده می‌شود.</p></div>
+      <div class="card"><div class="ico g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>نماز و قبله</h3><p>اوقات شرعی دقیق، اذان با صدای مؤذن دلخواه، قبله‌نما و تقویم هجری با مناسبت‌ها.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M9 10h6M9 13.5h4"/></svg></div><h3>بپرس</h3><p>دربارهٔ قرآن بپرسید و پاسخی بگیرید که از تفسیرهای معتبر آمده و منابعش را نشان می‌دهد.</p></div>
+      <div class="card"><div class="ico g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/></svg></div><h3>هدف و پیشرفت</h3><p>هدف روزانه برای خواندن و حفظ، یادآور و روزهای پیاپی؛ همگام در همهٔ دستگاه‌هایتان.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="show">
+        <div class="media"><div class="phone"><img src="assets/screen-dua.jpg" alt="دعای کمیل در معراج" loading="lazy"></div></div>
+        <div>
+          <div class="kicker">دعا</div>
+          <h3>هر دعایی، همان‌جا که لازمش دارید</h3>
+          <p>دعای کمیل، زیارت عاشورا، دعای توسل و صدها دعا و زیارت دیگر، با ترجمه و صوت.</p>
+          <ul class="ticks"><li>صوت با صدای قاریان شناخته‌شده</li><li>همراه‌خوانی: برنامه صدای شما را دنبال می‌کند</li><li>یادآور برای دعاهای هر شب و روز</li></ul>
+        </div>
+      </div>
+      <div class="show flip">
+        <div class="media"><div class="phone"><img src="assets/screen-chat.jpg" alt="پاسخ با منابع در بخش بپرس" loading="lazy"></div></div>
+        <div>
+          <div class="kicker">بپرس</div>
+          <h3>پاسخ از تفسیرها، با منبع</h3>
+          <p>پرسش خود را دربارهٔ آیات بنویسید؛ پاسخ از تفسیرهایی مانند المیزان و نمونه گرفته می‌شود و هر نکته منبعش را دارد.</p>
+          <ul class="ticks"><li>هر منبع را باز کنید و خودتان بخوانید</li><li>به فارسی، انگلیسی، عربی و اردو</li><li>پاسخ‌ها را هوش مصنوعی می‌نویسد؛ فتوا نیستند</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="privacy-fa">
+    <div class="wrap band">
+      <div><div class="kicker" style="color:var(--gold)">حریم خصوصی</div><h2>داده‌های شما، مال شما</h2><p class="sub">جزئیات در <a href="privacy/#fa" style="color:inherit">سیاست حریم خصوصی</a>.</p></div>
+      <ul>
+        <li><b>صدا روی گوشی می‌ماند</b>صدای تلاوت شما هرگز به هیچ سروری فرستاده نمی‌شود.</li>
+        <li><b>بدون ردیابی تبلیغاتی</b>شما را در برنامه‌ها و سایت‌های دیگر دنبال نمی‌کنیم و داده نمی‌فروشیم.</li>
+        <li><b>بدون حساب هم</b>حالت مهمان: داده‌ها فقط روی گوشی خودتان.</li>
+        <li><b>حذف در هر زمان</b>حساب و داده‌هایش را از داخل برنامه <a href="delete-account/#fa" style="color:inherit">حذف کنید</a>.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap cta">
+      <h2>پرسش یا پیشنهادی دارید؟</h2>
+      <p class="sub" style="margin:0 auto 18px">خوشحال می‌شویم از شما بشنویم.</p>
+      <a class="btn" href="mailto:seyedvahid.mirnezami@themiraj.ai,mohammadreza.khalilishoja@themiraj.ai">تماس با ما</a>
+    </div>
+  </section>
 </div>
 
 <!-- ===================== English ===================== -->
 <div class="en" id="en" lang="en" dir="ltr">
-  <h1>Mi'Raj</h1>
-  <p class="tagline">Quran · Prayer · A better you</p>
-  <p class="lead">Mi'Raj is your daily companion for the Quran, prayer and dua — an app for iOS and Android that brings together reading and listening to the Quran, recitation and memorization (hifz) practice, prayer times and adhan, duas and ziyarat, a Ramadan programme and questions about the faith, in one place.</p>
-  <p class="muted">Most of the app works without an account; used that way, your data stays on your phone.</p>
 
-  <h2>What's inside</h2>
-  <ul class="features">
-    <li><h3>Quran</h3><p>Several mushaf scripts, translations and tafsirs, and many reciters with word-by-word follow-along.</p></li>
-    <li><h3>Recitation &amp; hifz practice</h3><p>Recite aloud and Mi'Raj shows, word by word, what you got right and what you missed. Speech recognition runs on your phone.</p></li>
-    <li><h3>Goals &amp; progress</h3><p>Set reading, recitation or memorization goals, get reminders and follow your daily progress.</p></li>
-    <li><h3>Prayer &amp; Qibla</h3><p>Prayer times for where you are, adhan and prayer reminders, and a Qibla compass.</p></li>
-    <li><h3>Duas &amp; ziyarat</h3><p>Mafatih al-Jinan, Sahifa Sajjadiya and Nahj al-Balagha, with audio and the text following along as you read.</p></li>
-    <li><h3>Ramadan</h3><p>A day-by-day programme of the month's acts and duas, with reminders.</p></li>
-    <li><h3>Ask</h3><p>Ask questions about the Quran and the faith and get answers that cite their sources.</p></li>
-    <li><h3>Calendar</h3><p>Hijri, Solar Hijri and Gregorian dates, with religious occasions.</p></li>
-  </ul>
-  <p class="muted" style="margin-top:14px">Languages: English, Persian, Arabic and Urdu.</p>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow"><i></i>Coming soon to the App Store and Google Play</span>
+        <h1>The Quran, duas and prayer, <em>beautifully together</em></h1>
+        <p class="lede">Read and listen to the Quran with tafsir, recite and memorize with your own voice, find any dua from Mafatih al-Jinan, and pray on time with the adhan.</p>
+        <div class="badges">
+          <span class="badge soon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.37 12.6c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.77-3.32-1.8-1.41-.14-2.76.83-3.48.83-.72 0-1.82-.81-3-.79-1.54.02-2.96.9-3.76 2.27-1.6 2.78-.41 6.9 1.15 9.16.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.77.74 2.98.72 1.23-.02 2.01-1.12 2.76-2.23.87-1.28 1.23-2.52 1.25-2.58-.03-.01-2.4-.92-2.37-3.68zM14.1 5.86c.63-.77 1.06-1.83.94-2.89-.91.04-2.01.61-2.66 1.37-.58.67-1.09 1.75-.96 2.79 1.02.08 2.05-.52 2.68-1.27z"/></svg><span><small>Coming soon on the</small><b>App Store</b></span></span>
+          <span class="badge soon"><svg viewBox="0 0 24 24"><path fill="#34A853" d="M3.6 2.3 13.3 12l-9.7 9.7c-.4-.2-.6-.6-.6-1.1V3.4c0-.5.2-.9.6-1.1z"/><path fill="#FBBC04" d="m16.8 8.5-3.5 3.5 3.5 3.5 3.9-2.2c1.1-.6 1.1-2.1 0-2.6z"/><path fill="#4285F4" d="M13.3 12 3.6 21.7c.3.2.8.2 1.2 0l12-6.2z"/><path fill="#EA4335" d="M3.6 2.3c.4-.2.9-.2 1.2 0l12 6.2-3.5 3.5z"/></svg><span><small>Coming soon on</small><b>Google Play</b></span></span>
+        </div>
+        <p class="langs-line">English · فارسی · العربية · اردو</p>
+      </div>
+      <div class="phones" aria-hidden="true">
+        <div class="phone a"><img src="assets/screen-quran.jpg" alt=""></div>
+        <div class="phone b"><img src="assets/screen-home.jpg" alt=""></div>
+      </div>
+    </div>
+  </section>
 
-  <h2>More</h2>
-  <div class="links">
-    <a class="btn" href="privacy/#en">Privacy Policy</a>
-    <a class="btn" href="terms/#en">Terms of Use</a>
-    <a class="btn primary" href="mailto:seyedvahid.mirnezami@themiraj.ai,mohammadreza.khalilishoja@themiraj.ai">Contact us</a>
-  </div>
-  <p class="muted" style="margin-top:14px">Questions, ideas or a problem to report? Write to <a href="mailto:seyedvahid.mirnezami@themiraj.ai">seyedvahid.mirnezami@themiraj.ai</a> or <a href="mailto:mohammadreza.khalilishoja@themiraj.ai">mohammadreza.khalilishoja@themiraj.ai</a>.</p>
+  <section id="features-en">
+    <div class="wrap center">
+      <div class="kicker">Features</div>
+      <h2>Everything you return to every day</h2>
+      <p class="sub">Most of the app works without an account — used that way, your data stays on your phone.</p>
+    </div>
+    <div class="wrap grid">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5.5C4 4.5 7 4 12 6c5-2 8-1.5 10-.5V19c-2-1-5-1.5-10 .5-5-2-8-1.5-10-.5z"/><path d="M12 6v13.5"/></svg></div><h3>Quran</h3><p>The mushaf page by page or verse by verse, with translation, tafsir and word-by-word meanings — and renowned reciters.</p></div>
+      <div class="card"><div class="ico g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2.5" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3.5"/></svg></div><h3>Recite &amp; memorize</h3><p>Recite aloud and Mi'Raj follows word by word, showing where you slipped. Your voice is processed on your phone.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 21v-9a5 5 0 0 1 10 0v9M4 21h16M12 7V3M10 4.5h4"/></svg></div><h3>Duas &amp; ziyarat</h3><p>Mafatih al-Jinan, Sahifa Sajjadiyya and Nahj al-Balagha, with audio and the line being read highlighted.</p></div>
+      <div class="card"><div class="ico g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Prayer &amp; Qibla</h3><p>Accurate prayer times, the adhan by the moazzen you choose, a Qibla compass and the Hijri calendar.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M9 10h6M9 13.5h4"/></svg></div><h3>Ask</h3><p>Ask about the Quran and get answers drawn from respected tafsirs, every source cited.</p></div>
+      <div class="card"><div class="ico g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/></svg></div><h3>Goals &amp; progress</h3><p>Daily reading and hifz goals, reminders and streaks — in sync across your devices.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="show">
+        <div class="media"><div class="phone"><img src="assets/screen-dua.jpg" alt="Dua Kumayl in Mi'Raj" loading="lazy"></div></div>
+        <div>
+          <div class="kicker">Duas</div>
+          <h3>Every dua, right where you need it</h3>
+          <p>Dua Kumayl, Ziyarat Ashura, Dua Tawassul and hundreds more duas and ziyarat, with translation and audio.</p>
+          <ul class="ticks"><li>Audio by well-known reciters</li><li>Recite along — the app follows your voice</li><li>Reminders for each night's and day's duas</li></ul>
+        </div>
+      </div>
+      <div class="show flip">
+        <div class="media"><div class="phone"><img src="assets/screen-chat.jpg" alt="An answer with sources in Ask" loading="lazy"></div></div>
+        <div>
+          <div class="kicker">Ask</div>
+          <h3>Answers from tafsir, with sources</h3>
+          <p>Ask about any verse; answers draw on tafsirs such as al-Mizan and Nemooneh, and every point names its source.</p>
+          <ul class="ticks"><li>Open any source and read it yourself</li><li>In English, Persian, Arabic and Urdu</li><li>Written by AI — never a fatwa</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="privacy-en">
+    <div class="wrap band">
+      <div><div class="kicker" style="color:var(--gold)">Privacy</div><h2>Your data stays yours</h2><p class="sub">The details are in our <a href="privacy/#en" style="color:inherit">Privacy Policy</a>.</p></div>
+      <ul>
+        <li><b>Your voice stays on your phone</b>Recitation audio is never sent to any server.</li>
+        <li><b>No ad tracking</b>We don't follow you across apps or websites, and we never sell data.</li>
+        <li><b>No account needed</b>Guest mode keeps everything on your phone.</li>
+        <li><b>Delete any time</b>Delete your account and its data <a href="delete-account/#en" style="color:inherit">right from the app</a>.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap cta">
+      <h2>Questions or ideas?</h2>
+      <p class="sub" style="margin:0 auto 18px">We'd love to hear from you.</p>
+      <a class="btn" href="mailto:seyedvahid.mirnezami@themiraj.ai,mohammadreza.khalilishoja@themiraj.ai">Contact us</a>
+    </div>
+  </section>
 </div>
-
 </main>
 
 <footer>
-  <div class="wrap">
+  <div class="wrap foot">
     <nav class="fa" lang="fa" dir="rtl"><a href="privacy/#fa">حریم خصوصی</a><a href="terms/#fa">شرایط استفاده</a><a href="delete-account/#fa">حذف حساب</a><a class="mail" href="mailto:seyedvahid.mirnezami@themiraj.ai">seyedvahid.mirnezami@themiraj.ai</a><a class="mail" href="mailto:mohammadreza.khalilishoja@themiraj.ai">mohammadreza.khalilishoja@themiraj.ai</a></nav>
     <nav class="en" lang="en" dir="ltr"><a href="privacy/#en">Privacy</a><a href="terms/#en">Terms</a><a href="delete-account/#en">Delete account</a><a href="mailto:seyedvahid.mirnezami@themiraj.ai">seyedvahid.mirnezami@themiraj.ai</a><a href="mailto:mohammadreza.khalilishoja@themiraj.ai">mohammadreza.khalilishoja@themiraj.ai</a></nav>
     <div lang="en" dir="ltr">© 2026 Mi'Raj</div>
